@@ -1,5 +1,5 @@
 ## AJ Unturned
-### Duty and IsAbusing, combined.
+### Duty and IsAbusing, combined (and cleaned up).
 
 ---
 
