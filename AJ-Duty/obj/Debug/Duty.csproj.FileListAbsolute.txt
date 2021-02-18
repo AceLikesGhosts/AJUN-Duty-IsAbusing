@@ -1,0 +1,12 @@
+C:\Users\Joseph\Desktop\AJ-Duty\obj\Debug\Duty.csproj.CoreCompileInputs.cache
+C:\Users\Joseph\Desktop\AJ-Duty\obj\Debug\Duty.csproj.CopyComplete
+C:\Users\Joseph\Desktop\AJ-Duty\obj\Debug\AJ-Duty.dll
+C:\Users\Joseph\Desktop\AJ-Duty\AJ-Duty.dll
+C:\Users\Joseph\Desktop\AJ-Duty\Assembly-CSharp-firstpass.dll
+C:\Users\Joseph\Desktop\AJ-Duty\Assembly-CSharp.dll
+C:\Users\Joseph\Desktop\AJ-Duty\Newtonsoft.Json.dll
+C:\Users\Joseph\Desktop\AJ-Duty\Rocket.API.dll
+C:\Users\Joseph\Desktop\AJ-Duty\Rocket.Core.dll
+C:\Users\Joseph\Desktop\AJ-Duty\Rocket.Unturned.dll
+C:\Users\Joseph\Desktop\AJ-Duty\UnityEngine.CoreModule.dll
+C:\Users\Joseph\Desktop\AJ-Duty\UnityEngine.dll
