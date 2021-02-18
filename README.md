@@ -1,5 +1,6 @@
+![AJ Unturned](https://i.imgur.com/zAnA6B0.png)
 ##### AJ Unturned
-### Duty and IsAbusing, combined.
+## Duty and IsAbusing, combined.
 
 ---
 
