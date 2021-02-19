@@ -15,4 +15,6 @@
 
 This plugin sends a message to a DISCORD WEBHOOK everytime someone is killed while the killer is on duty.
 
+(CURRENTLY THIS VALUE IS HARD CODED, IN RELEASE 1.0 IT WILL BE WITHIN A CONFIG)
+
 If you find any issues with this plugin, please create one under the ["Issues"](https://github.com/AceLikesGhosts/AJUN-Duty-IsAbusing/issues) tab.
