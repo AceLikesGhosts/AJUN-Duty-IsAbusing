@@ -13,7 +13,7 @@
 
 ---
 
-This plugin sends a message to a DISCORD WEBHOOK everytime someone is killed while the killer is on duty.
+This plugin sends a message to a DISCORD WEBHOOK everytime the killer is on duty, or when they kill someone with godmode/vanishmode on!
 
 (CURRENTLY THIS VALUE IS HARD CODED, IN RELEASE 1.0 IT WILL BE WITHIN A CONFIG)
 
