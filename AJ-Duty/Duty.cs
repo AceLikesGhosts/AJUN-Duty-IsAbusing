@@ -19,9 +19,9 @@ namespace AJUN
 {
     public class Duty : RocketPlugin<DutyConfiguration>
     {
-        public static string webhook = ""; //webhook url
         public static Duty Instance;
         public List<DutyGroups> ValidGroups;
+        public static string Webhook = "";
 
         protected override void Load()
         {
@@ -70,14 +70,14 @@ namespace AJUN
         {
             var murder3 = UnturnedPlayer.FromCSteamID(murder);
 
-            if (cause == EDeathCause.SENTRY || cause == EDeathCause.LANDMINE || cause == EDeathCause.VEHICLE || cause == EDeathCause.FOOD || cause == EDeathCause.WATER || cause == EDeathCause.ZOMBIE || cause == EDeathCause.ANIMAL || cause == EDeathCause.INFECTION) { }
+            if (cause == EDeathCause.SENTRY || cause == EDeathCause.LANDMINE || cause == EDeathCause.VEHICLE || cause == EDeathCause.FOOD || cause == EDeathCause.WATER || cause == EDeathCause.ZOMBIE || cause == EDeathCause.ANIMAL || cause == EDeathCause.INFECTION || cause == EDeathCause.BOULDER) { }
             try
             {
                 var red = Color.red;
                 if (murder3.GodMode == true)
                 {
                     UnturnedChat.Say(red + player.CharacterName + " died by a staff-member in godmode. ABUSER: " + murder3.CharacterName);
-                    HTTP.Post(webhook, new NameValueCollection()
+                    HTTP.Post(Webhook, new NameValueCollection()
             {
                 { "username", "Duty/IsAbusing Link" },
                 { "avatar_url", "https://cdn.discordapp.com/attachments/696080024742395914/718483498947838063/beetlejuice-1.jpg" },
@@ -88,7 +88,7 @@ namespace AJUN
                 {   
                     UnturnedChat.Say(red + player.CharacterName + " died to a staff-member in vanish. ABUSER: " + murder3.CharacterName);
 
-                    HTTP.Post(webhook, new NameValueCollection()
+                    HTTP.Post(Webhook, new NameValueCollection()
             {
                 { "username", "Duty/IsAbusing Link" },
                 { "avatar_url", "https://cdn.discordapp.com/attachments/696080024742395914/718483498947838063/beetlejuice-1.jpg" },
@@ -97,8 +97,7 @@ namespace AJUN
                 }
                 else if (murder3.IsAdmin == true)
                 {
-                    UnturnedChat.Say(red + player.CharacterName + " died to a staff-member on duty/with permissions. ABUSER: " + murder3.CharacterName);
-                    HTTP.Post(webhook, new NameValueCollection()
+                    HTTP.Post(Webhook, new NameValueCollection()
             {
                 { "username", "Duty/IsAbusing Link" },
                 { "avatar_url", "https://cdn.discordapp.com/attachments/696080024742395914/718483498947838063/beetlejuice-1.jpg" },
@@ -108,7 +107,7 @@ namespace AJUN
             }
             catch (Exception e)
             {
-                Logger.LogWarning("" + e);
+                Logger.LogWarning("DUTY ERROR | " + e);
             }
         }
 
@@ -119,6 +118,9 @@ namespace AJUN
                 caller.Admin(false);
                 caller.Features.GodMode = false;
                 caller.Features.VanishMode = false;
+                caller.Player.look.sendFreecamAllowed(false);
+                caller.Player.look.sendSpecStatsAllowed(false);
+                caller.Player.look.sendWorkzoneAllowed(false);
                 /* SDG.Unturned.EffectManager.askEffectClearByID(9000, caller.CSteamID); */
                 if (Configuration.Instance.EnableServerAnnouncer) UnturnedChat.Say(Instance.Translate("off_duty_message", caller.CharacterName), UnturnedChat.GetColorFromName(Instance.Configuration.Instance.MessageColor, Color.red));
             }
@@ -126,6 +128,9 @@ namespace AJUN
             {
                 /* SDG.Unturned.EffectManager.sendUIEffect(9000, 9000, caller.CSteamID, false, Color.red + "You are on duty.");*/
                 caller.Admin(true);
+                caller.Player.look.sendFreecamAllowed(true);
+                caller.Player.look.sendSpecStatsAllowed(true);
+                caller.Player.look.sendWorkzoneAllowed(true);
                 if (Configuration.Instance.EnableServerAnnouncer) UnturnedChat.Say(Instance.Translate("on_duty_message", caller.CharacterName), UnturnedChat.GetColorFromName(Instance.Configuration.Instance.MessageColor, Color.red));
             }
         }
@@ -203,7 +208,7 @@ namespace AJUN
                     {"off_duty_message", "{0} is now off duty."},
                     {"check_on_duty_message", "{0} has confirmed that {1} is on duty."},
                     {"check_off_duty_message", "{0} has confirmed that {1} is not on duty."},
-                    {"not_enough_permissions", "You do not have the correct permissions to use duty."},
+                    {"not_enough_permissions", "You do not have the correct permissions to use this command."},
                     {"error_unable_checkduty", "Unable To Check Duty. Configuration Is Set To Be Disabled."},
                     {"error_cplayer_null", "Player is not online or his name is invalid." },
                     {"error_dc_usage", "No argument was specified. Please use \"dc <playername>\" to check on a player." }
